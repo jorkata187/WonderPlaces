@@ -2,7 +2,7 @@ export default function Home() {
    return (
         <section className="w-full">
             <div
-                className="w-full h-[520px] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center"
+                className="w-full h-[775px] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center"
                 style={{
                     backgroundImage:
                         "url('https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D')",
