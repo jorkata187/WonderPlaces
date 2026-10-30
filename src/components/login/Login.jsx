@@ -1,5 +1,5 @@
 export default function Login() {
-     const backgroundImage =
+    const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 
     return (
@@ -65,9 +65,12 @@ export default function Login() {
                         {/* Sign up */}
                         <div className="text-center text-[#969696]">
                             Don't have an account?{" "}
-                            <span className="cursor-pointer text-[#7337FF] hover:underline">
+                            <a
+                                href="/register"
+                                className="cursor-pointer text-[#7337FF] hover:underline"
+                            >
                                 Register
-                            </span>
+                            </a>
                         </div>
                     </div>
                 </div>
