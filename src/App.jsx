@@ -6,6 +6,7 @@ import Login from './components/login/Login'
 import Register from './components/register/Register'
 import About from './components/about/About'
 import ShareLocation from './components/share-location/ShareLocation'
+import Explore from './components/explore/Explore'
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
         <Navigation/>
 
         <Home />
+
+        <Explore />
 
         <ShareLocation />
 
