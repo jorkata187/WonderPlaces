@@ -48,6 +48,7 @@ export default function ShareLocation() {
                                 />
 
                                 {/* Country and City */}
+                                <div className="flex flex-col gap-4 sm:flex-row">
                                     <input
                                         type="text"
                                         placeholder="Country"
@@ -57,7 +58,18 @@ export default function ShareLocation() {
                                             boxShadow: "rgb(0 0 0 / 21%) 0px 7px 5px 0px",
                                         }}
                                     />
-                                   
+
+                                    <input
+                                        type="text"
+                                        placeholder="City"
+                                        required
+                                        className="w-full rounded-md bg-[#E9EFF6] p-3 placeholder:text-[#000000]"
+                                        style={{
+                                            boxShadow: "rgb(0 0 0 / 21%) 0px 7px 5px 0px",
+                                        }}
+                                    />
+                                </div>
+
                                 {/* Category */}
                                 <select
                                     required

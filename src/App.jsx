@@ -7,6 +7,7 @@ import Register from './components/register/Register'
 import About from './components/about/About'
 import ShareLocation from './components/share-location/ShareLocation'
 import Explore from './components/explore/Explore'
+import PlaceDetails from './components/place-details/PlaceDetails'
 
 function App() {
 
@@ -15,6 +16,8 @@ function App() {
         <Navigation/>
 
         <Home />
+
+        <PlaceDetails />
 
         <Explore />
 
