@@ -6,7 +6,7 @@ export default function Register() {
 
     return (
         <div
-            className="min-h-screen bg-cover bg-center"
+            className="min-h-screen bg-cover bg-center bg-fixed"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
             <div className="flex min-h-screen items-center justify-center py-10">

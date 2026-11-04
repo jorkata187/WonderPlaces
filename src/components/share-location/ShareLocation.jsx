@@ -6,7 +6,7 @@ export default function ShareLocation() {
 
     return (
         <div
-            className="min-h-screen bg-cover bg-center"
+            className="min-h-screen bg-cover bg-center bg-fixed"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
             <div className="flex min-h-screen items-center justify-center px-4 py-10">

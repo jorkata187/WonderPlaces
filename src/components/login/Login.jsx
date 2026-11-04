@@ -6,7 +6,7 @@ export default function Login() {
 
     return (
         <div
-            className="bg-cover bg-center"
+            className="bg-cover bg-center bg-fixed"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
             <div className="flex h-screen items-center justify-center">

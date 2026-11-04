@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router'
+import { Routes, Route, BrowserRouter } from 'react-router'
 
 import './App.css'
 
@@ -18,20 +18,17 @@ function App() {
       <Navigation />
 
       <main id="main-content">
-
-        <Home />
-
-        <PlaceDetails />
-
-        <Explore />
-
-        <ShareLocation />
-
-        <Login />
-
-        <About />
-
-        <Register />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/place/:id" element={<PlaceDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/share" element={<ShareLocation />} />
+          </Routes>
+        </BrowserRouter>
       </main>
     </div>
   )

@@ -125,8 +125,8 @@ export default function Explore() {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`rounded-full px-5 py-2 font-semibold transition ${selectedCategory === category
-                                        ? "bg-gradient-to-br from-[#7336FF] to-[#3269FF] text-white shadow-lg"
-                                        : "bg-white text-gray-700 hover:bg-[#E9EFF6]"
+                                    ? "bg-gradient-to-br from-[#7336FF] to-[#3269FF] text-white shadow-lg"
+                                    : "bg-white text-gray-700 hover:bg-[#E9EFF6]"
                                     }`}
                             >
                                 {category}
@@ -182,14 +182,12 @@ export default function Explore() {
                                     </p>
 
                                     {/* View Details */}
-                                    <button
-                                        onClick={() =>
-                                            alert(`Viewing ${place.name}`)
-                                        }
-                                        className="w-full rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] py-3 font-semibold text-white shadow-md shadow-blue-950 transition hover:opacity-90"
+                                    <a
+                                        href="/place/1"
+                                        className="inline-block rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] px-8 py-2.5 text-white shadow-md shadow-blue-950 hover:opacity-90"
                                     >
                                         View Details
-                                    </button>
+                                    </a>
 
                                 </div>
                             </div>
