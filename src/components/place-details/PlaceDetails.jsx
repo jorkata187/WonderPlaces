@@ -1,9 +1,10 @@
 import { useState } from "react";
+import Footer from "../footer/Footer";
 
 export default function PlaceDetails() {
     const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
-   
+
     // Example place data
     const place = {
         name: "Santorini",
@@ -214,14 +215,7 @@ export default function PlaceDetails() {
                         </div>
                     </div>
 
-                    {/* Footer */}
-                    <div className="mt-8 text-center">
-                        <p className="text-sm text-white">
-                            Discover new places. Share your experiences.
-                            Explore the world together. 🌍
-                        </p>
-                    </div>
-
+                    <Footer />
                 </div>
             </div>
         </div>

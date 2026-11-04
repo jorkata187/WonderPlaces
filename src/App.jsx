@@ -1,3 +1,5 @@
+import { Routes, Route } from 'react-router'
+
 import './App.css'
 
 import Navigation from './components/navigation/Navigation'
@@ -12,8 +14,10 @@ import PlaceDetails from './components/place-details/PlaceDetails'
 function App() {
 
   return (
-    <>
-        <Navigation/>
+    <div id="box">
+      <Navigation />
+
+      <main id="main-content">
 
         <Home />
 
@@ -28,7 +32,8 @@ function App() {
         <About />
 
         <Register />
-    </>
+      </main>
+    </div>
   )
 }
 

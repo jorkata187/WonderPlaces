@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Footer from "../footer/Footer";
 
 export default function Explore() {
     const backgroundImage =
@@ -219,14 +220,7 @@ export default function Explore() {
                         </div>
                     )}
 
-                    {/* Footer */}
-                    <div className="mt-12 text-center">
-                        <p className="text-sm text-white">
-                            Discover new places. Share your experiences.
-                            Explore the world together. 🌍
-                        </p>
-                    </div>
-
+                    <Footer />
                 </div>
             </div>
         </div>

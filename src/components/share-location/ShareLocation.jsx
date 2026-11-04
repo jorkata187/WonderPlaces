@@ -1,3 +1,5 @@
+import Footer from "../footer/Footer";
+
 export default function ShareLocation() {
     const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
@@ -125,7 +127,6 @@ export default function ShareLocation() {
 
                         </form>
 
-                        {/* Footer */}
                         <div className="mt-5 text-center">
                             <a
                                 href="/"
@@ -136,6 +137,8 @@ export default function ShareLocation() {
                         </div>
 
                     </div>
+                    
+                    <Footer />
                 </div>
             </div>
         </div>
