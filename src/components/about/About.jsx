@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import Footer from "../footer/Footer";
 
 export default function About() {
@@ -116,12 +118,12 @@ export default function About() {
                                 Thank you for being part of our community!
                             </p>
 
-                            <a
-                                href="/explore"
+                            <Link
+                                to="/explore"
                                 className="inline-block rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] px-8 py-2.5 text-white shadow-md shadow-blue-950 hover:opacity-90"
                             >
                                 Explore Places
-                            </a>
+                            </Link>
                         </div>
 
                     </div>

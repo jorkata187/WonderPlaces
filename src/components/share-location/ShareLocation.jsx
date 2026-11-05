@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import Footer from "../footer/Footer";
 
 export default function ShareLocation() {
@@ -128,12 +130,12 @@ export default function ShareLocation() {
                         </form>
 
                         <div className="mt-5 text-center">
-                            <a
-                                href="/"
+                            <Link
+                                to="/"
                                 className="text-sm text-[#7337FF] hover:underline"
                             >
                                 Back to Home
-                            </a>
+                            </Link>
                         </div>
 
                     </div>

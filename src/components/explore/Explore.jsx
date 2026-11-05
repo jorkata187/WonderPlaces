@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Footer from "../footer/Footer";
+import { Link } from "react-router";
 
 export default function Explore() {
     const backgroundImage =
@@ -182,12 +183,12 @@ export default function Explore() {
                                     </p>
 
                                     {/* View Details */}
-                                    <a
-                                        href="/place/1"
+                                    <Link
+                                        to="/place/1"
                                         className="inline-block rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] px-8 py-2.5 text-white shadow-md shadow-blue-950 hover:opacity-90"
                                     >
                                         View Details
-                                    </a>
+                                    </Link>
 
                                 </div>
                             </div>

@@ -14,11 +14,11 @@ import PlaceDetails from './components/place-details/PlaceDetails'
 function App() {
 
   return (
-    <div id="box">
-      <Navigation />
+    <BrowserRouter>
+      <div id="box">
+        <Navigation />
 
-      <main id="main-content">
-        <BrowserRouter>
+        <main id="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
@@ -28,9 +28,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/share" element={<ShareLocation />} />
           </Routes>
-        </BrowserRouter>
-      </main>
-    </div>
+        </main>
+      </div>
+    </BrowserRouter>
   )
 }
 

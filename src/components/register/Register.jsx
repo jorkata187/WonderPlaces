@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import Footer from "../footer/Footer";
 
 export default function Register() {
@@ -86,12 +88,12 @@ export default function Register() {
                         {/* Login link */}
                         <div className="text-center text-[#969696]">
                             Already have an account?{" "}
-                            <a
-                                href="/login"
+                            <Link
+                                to="/login"
                                 className="cursor-pointer text-[#7337FF] hover:underline"
                             >
                                 Login
-                            </a>
+                            </Link>
                         </div>
                     </div>
 

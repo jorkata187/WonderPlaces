@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router";
+
 import Footer from "../footer/Footer";
 
 export default function PlaceDetails() {
@@ -204,12 +206,12 @@ export default function PlaceDetails() {
 
                             {/* Back Button */}
                             <div className="mt-10 border-t border-gray-200 pt-6 text-center">
-                                <a
-                                    href="/explore"
+                                <Link
+                                    to="/explore"
                                     className="inline-block rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] px-8 py-3 font-semibold text-white shadow-md shadow-blue-950 transition hover:opacity-90"
                                 >
                                     ← Back to Explore
-                                </a>
+                                </Link>
                             </div>
 
                         </div>

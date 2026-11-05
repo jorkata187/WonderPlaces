@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 
 export default function Navigation() {
@@ -48,60 +49,60 @@ export default function Navigation() {
                         isOpen ? "flex" : "hidden"
                     } lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 mt-4 items-center text-xl`}
                 >
-                    <a
-                        href="/"
+                    <Link
+                        to="/"
                         className="text-white px-4 py-2 hover:text-orange-600"
                     >
                         Home
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/explore"
+                    <Link
+                        to="/explore"
                         className="text-white px-4 py-2 hover:text-orange-600"
                         onClick={() => setIsOpen(false)}
                     >
                         Explore
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/share"
+                    <Link
+                        to="/share"
                         className="text-white px-4 py-2 hover:text-orange-600"
                         onClick={() => setIsOpen(false)}
                     >
                         Share
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/about"
+                    <Link
+                        to="/about"
                         className="text-white px-4 py-2 hover:text-orange-600"
                         onClick={() => setIsOpen(false)}
                     >
                         About
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/login"
+                    <Link
+                        to="/login"
                         className="text-white px-4 py-2 hover:text-orange-600"
                         onClick={() => setIsOpen(false)}
                     >
                         Login
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/register"
+                    <Link
+                        to="/register"
                         className="text-white px-4 py-2 hover:text-orange-600"
                         onClick={() => setIsOpen(false)}
                     >
                         Register
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/logout"
+                    <Link
+                        to="/logout"
                         className="text-white px-4 py-2 hover:text-orange-600"
                         onClick={() => setIsOpen(false)}
                     >
                         Logout
-                    </a>
+                    </Link>
                 </div>
 
             </div>
