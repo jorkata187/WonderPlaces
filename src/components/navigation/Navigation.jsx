@@ -9,7 +9,7 @@ export default function Navigation() {
         setIsOpen(!isOpen);
     };
    return (
-            <nav className="bg-black p-4">
+            <nav className="bg-blue-600 p-4">
             <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
 
                 {/* Logo */}
