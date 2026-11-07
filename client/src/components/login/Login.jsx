@@ -1,8 +1,22 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useActionState } from "react";
 
 import Footer from "../footer/Footer";
+import { useLogin } from "../../api/authApi";
 
 export default function Login() {
+    const navigate = useNavigate();
+    const { login } = useLogin();
+
+    const loginHandler = async (previousState, formData) => {
+        const values = Object.fromEntries(formData);
+
+        const authData = await login(values.email, values.password);
+
+        navigate(-1);
+    };
+
+    const [values, loginAction, isPending] = useActionState(loginHandler, {email: '', password: ''});
     const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 
@@ -28,10 +42,11 @@ export default function Login() {
                             Welcome Back!
                         </h1>
 
-                        <form className="space-y-4">
+                        <form className="space-y-4" action={loginAction}>
                             <div className="space-y-4">
                                 <input
                                     type="email"
+                                    name="email"
                                     placeholder="Email address"
                                     autoComplete="email"
                                     required
@@ -44,6 +59,7 @@ export default function Login() {
 
                                 <input
                                     type="password"
+                                    name="password"
                                     placeholder="Password"
                                     autoComplete="current-password"
                                     required
@@ -59,6 +75,7 @@ export default function Login() {
                             <div className="mb-4 flex justify-center">
                                 <button
                                     type="submit"
+                                    disabled={isPending}
                                     className="h-10 w-full cursor-pointer rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] text-white shadow-md shadow-blue-950"
                                 >
                                     Login
