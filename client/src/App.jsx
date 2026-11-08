@@ -17,9 +17,8 @@ import PlaceDetails from './components/place-details/PlaceDetails'
 function App() {
 
   return (
-    <UserProvider>
-
-      <BrowserRouter>
+    <BrowserRouter>
+      <UserProvider>
         <ScrollToTop />
         <div id="box">
           <Navigation />
@@ -36,9 +35,8 @@ function App() {
             </Routes>
           </main>
         </div>
-      </BrowserRouter>
-      
-    </UserProvider>
+      </UserProvider>
+    </BrowserRouter>
   )
 }
 

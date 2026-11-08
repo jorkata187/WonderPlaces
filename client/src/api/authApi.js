@@ -22,4 +22,13 @@ export const useLogin = () => {
     return {
         login,
     }
+};
+
+export const useRegister = () => {
+    const register = (email, username, password) =>
+        request.post(`${baseUrl}/register`, { email, username, password });
+
+    return {
+        register
+    }
 }
