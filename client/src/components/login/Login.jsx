@@ -16,7 +16,8 @@ export default function Login() {
         navigate(-1);
     };
 
-    const [values, loginAction, isPending] = useActionState(loginHandler, {email: '', password: ''});
+    const [values, loginAction, isPending] = useActionState(loginHandler, { email: '', password: '' });
+
     const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 
@@ -76,7 +77,9 @@ export default function Login() {
                                 <button
                                     type="submit"
                                     disabled={isPending}
-                                    className="h-10 w-full cursor-pointer rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] text-white shadow-md shadow-blue-950"
+                                    className={isPending
+                                        ? "h-10 w-full rounded-md bg-gradient-to-br from-[#9b9a9c] to-[#c0bfc1] text-white shadow-md shadow-blue-950"
+                                        : "h-10 w-full cursor-pointer rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] text-white shadow-md shadow-blue-950"}
                                 >
                                     Login
                                 </button>
