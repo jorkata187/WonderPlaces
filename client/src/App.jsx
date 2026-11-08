@@ -1,4 +1,5 @@
 import { Routes, Route, BrowserRouter } from 'react-router'
+import { ToastContainer } from 'react-toastify'
 
 import './App.css'
 
@@ -35,6 +36,7 @@ function App() {
             </Routes>
           </main>
         </div>
+        <ToastContainer />
       </UserProvider>
     </BrowserRouter>
   )

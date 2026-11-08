@@ -1,11 +1,14 @@
 import { Link, useNavigate } from "react-router";
-import { useActionState } from "react";
+import { useActionState, useRef } from "react";
+import { toast } from "react-toastify";
 
 import Footer from "../footer/Footer";
 import { useRegister } from "../../api/authApi";
 import { useUserContext } from "../../contexts/UserContext";
 
 export default function Register() {
+    const emailRef = useRef('');
+    const usernameRef = useRef('');
     const navigate = useNavigate();
     const { register } = useRegister();
     const { userLoginHandler } = useUserContext();
@@ -14,15 +17,21 @@ export default function Register() {
         const { email, username, password, rePassword } = Object.fromEntries(formData);
 
         if (password !== rePassword) {
-            console.log('Password missmatch');
+            emailRef.current = email;
+            usernameRef.current = username;
+
+            toast.error('Password missmatch')
             return;
         }
 
-        const authData = await register(email, username, password);
-
-        userLoginHandler(authData);
-
-        navigate('/');
+        try {
+            const authData = await register(email, username, password);
+            userLoginHandler(authData);
+            toast.success('Success register')
+            navigate('/');
+        } catch (error) {
+            toast.error(error.message)
+        }
     }
 
     const [values, registerAction, isPending] = useActionState(registerHandler, { email: '', username: '', password: '', rePassword: '' });
@@ -59,6 +68,7 @@ export default function Register() {
 
                                 {/* Email */}
                                 <input
+                                    defaultValue={emailRef.current}
                                     type="email"
                                     name="email"
                                     placeholder="Email address"
@@ -73,6 +83,7 @@ export default function Register() {
 
                                 {/* Username */}
                                 <input
+                                    defaultValue={usernameRef.current}
                                     type="text"
                                     name="username"
                                     autoComplete=""
@@ -120,7 +131,7 @@ export default function Register() {
                                 <button
                                     type="submit"
                                     disabled={isPending}
-                                     className={isPending
+                                    className={isPending
                                         ? "h-10 w-full rounded-md bg-gradient-to-br from-[#9b9a9c] to-[#c0bfc1] text-white shadow-md shadow-blue-950"
                                         : "h-10 w-full cursor-pointer rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] text-white shadow-md shadow-blue-950"}
                                 >
