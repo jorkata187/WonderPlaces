@@ -2,6 +2,8 @@ import { Routes, Route, BrowserRouter } from 'react-router'
 
 import './App.css'
 
+import UserProvider from './providers/UserProvider'
+
 import ScrollToTop from './components/ScrollToTop'
 import Navigation from './components/navigation/Navigation'
 import Home from './components/home/Home'
@@ -15,24 +17,28 @@ import PlaceDetails from './components/place-details/PlaceDetails'
 function App() {
 
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div id="box">
-        <Navigation />
+    <UserProvider>
 
-        <main id="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/place/:id" element={<PlaceDetails />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/share" element={<ShareLocation />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div id="box">
+          <Navigation />
+
+          <main id="main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/place/:id" element={<PlaceDetails />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/share" element={<ShareLocation />} />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
+      
+    </UserProvider>
   )
 }
 

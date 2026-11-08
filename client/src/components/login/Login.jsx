@@ -1,17 +1,21 @@
 import { Link, useNavigate } from "react-router";
-import { useActionState } from "react";
+import { useActionState, useContext } from "react";
 
 import Footer from "../footer/Footer";
 import { useLogin } from "../../api/authApi";
+import { UserContext } from "../../contexts/UserContext";
 
 export default function Login() {
     const navigate = useNavigate();
+    const { userLoginHandler } = useContext(UserContext);
     const { login } = useLogin();
 
     const loginHandler = async (previousState, formData) => {
         const values = Object.fromEntries(formData);
 
         const authData = await login(values.email, values.password);
+
+        userLoginHandler(authData);
 
         navigate(-1);
     };
