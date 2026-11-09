@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
+import { toast } from "react-toastify";
 
 import request from "../utils/request";
+import { useUserContext } from "../contexts/UserContext";
 
 const baseUrl = 'http://localhost:3030/users';
 
@@ -31,4 +33,27 @@ export const useRegister = () => {
     return {
         register
     }
-}
+};
+
+export const useLogout = () => {
+    const { accessToken, userLogoutHandler } = useUserContext();
+
+    useEffect(() => {
+        if (!accessToken) {
+            return;
+        }
+        const options = {
+            headers: {
+                'X-Authorization': accessToken
+            }
+        };
+
+        request.get(`${baseUrl}/logout`, null, options)
+            .then(userLogoutHandler())
+            .catch(err => toast.error(err.message));
+    }, [accessToken, userLogoutHandler]);
+
+    return {
+        isLoggedOut: !accessToken,
+    };
+};
