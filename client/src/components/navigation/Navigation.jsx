@@ -28,20 +28,20 @@ export default function Navigation() {
                         className="text-white focus:outline-none"
                         aria-label="Toggle navigation menu"
                         aria-expanded={isOpen}
-                        >
+                    >
                         <svg
                             className="h-6 w-6"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
-                            >
+                        >
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth="2"
                                 d="M4 6h16M4 12h16m-7 6h7"
-                                />
+                            />
                         </svg>
                     </button>
                 </div>
@@ -49,65 +49,75 @@ export default function Navigation() {
                 {/* Navigation links */}
                 <div
                     className={`${isOpen ? "flex" : "hidden"
-                    } lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 mt-4 items-center text-xl`}
-                    >
+                        } lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 mt-4 items-center text-xl`}
+                >
                     <Link
                         to="/"
-                        className="text-white px-4 py-2 hover:text-orange-600"
-                        >
+                        className="text-2xl text-white px-4 py-2 hover:text-orange-600"
+                    >
                         Home
                     </Link>
 
                     <Link
                         to="/explore"
-                        className="text-white px-4 py-2 hover:text-orange-600"
+                        className="text-2xl text-white px-4 py-2 hover:text-orange-600"
                         onClick={() => setIsOpen(false)}
-                        >
+                    >
                         Explore
                     </Link>
 
                     <Link
-                        to="/share"
-                        className="text-white px-4 py-2 hover:text-orange-600"
-                        onClick={() => setIsOpen(false)}
-                        >
-                        Share
-                    </Link>
-
-                    <Link
                         to="/about"
-                        className="text-white px-4 py-2 hover:text-orange-600"
+                        className="text-2xl text-white px-4 py-2 hover:text-orange-600"
                         onClick={() => setIsOpen(false)}
-                        >
+                    >
                         About
                     </Link>
 
-                    <Link
-                        to="/login"
-                        className="text-white px-4 py-2 hover:text-orange-600"
-                        onClick={() => setIsOpen(false)}
-                        >
-                        Login
-                    </Link>
+                    {username
+                        ? (
+                            <div id="user" className={`${isOpen ? "flex" : "hidden"
+                        } lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 mt-4 items-center text-xl`}>
+                                <Link
+                                    to="/share"
+                                    className="text-2xl text-white px-4 py-2 hover:text-orange-600"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Share
+                                </Link>
+                                
+                                <Link
+                                    to="/logout"
+                                    className="text-2xl text-white px-4 py-2 hover:text-orange-600"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Logout
+                                </Link>
+                            </div>
+                        )
+                        : (
+                            <div id="guest" className={`${isOpen ? "flex" : "hidden"
+                        } lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 mt-4 items-center text-xl`}>
+                                <Link
+                                    to="/login"
+                                    className="text-2xl text-white px-4 py-2 hover:text-orange-600"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Login
+                                </Link>
 
-                    <Link
-                        to="/register"
-                        className="text-white px-4 py-2 hover:text-orange-600"
-                        onClick={() => setIsOpen(false)}
-                        >
-                        Register
-                    </Link>
+                                <Link
+                                    to="/register"
+                                    className="text-2xl text-white px-4 py-2 hover:text-orange-600"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Register
+                                </Link>
+                            </div>
+                        )
+                    }
 
-                    <Link
-                        to="/logout"
-                        className="text-white px-4 py-2 hover:text-orange-600"
-                        onClick={() => setIsOpen(false)}
-                        >
-                        Logout
-                    </Link>
-
-                        {username && <p className="text-sm">{username}</p>}
-
+                    {username && <div className="text-1xl py-2 hover:text-orange-600 px-10">{username}</div>}
                 </div>
             </div>
         </nav>

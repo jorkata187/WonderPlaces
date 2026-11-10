@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from 'react-router'
+import { Routes, Route } from 'react-router'
 import { ToastContainer } from 'react-toastify'
 
 import './App.css'
@@ -19,28 +19,28 @@ import ShareLocation from './components/share-location/ShareLocation'
 function App() {
 
   return (
-    <BrowserRouter>
-      <UserProvider>
-        <ScrollToTop />
-        <div id="box">
-          <Navigation />
+    <UserProvider>
 
-          <main id="main-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/explore" element={<Explore />} />
-              <Route path="/place/:id" element={<PlaceDetails />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/share" element={<ShareLocation />} />
-            </Routes>
-          </main>
-        </div>
-        <ToastContainer />
-      </UserProvider>
-    </BrowserRouter>
+      <ScrollToTop />
+      <ToastContainer />
+
+      <div id="box">
+        <Navigation />
+
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/place/:id" element={<PlaceDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/share" element={<ShareLocation />} />
+          </Routes>
+        </main>
+      </div>
+    </UserProvider>
   )
 }
 
