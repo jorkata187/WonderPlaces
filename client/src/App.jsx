@@ -5,6 +5,8 @@ import './App.css'
 
 import UserProvider from './providers/UserProvider'
 
+import AuthGuard from './guards/AuthGuard'
+
 import ScrollToTop from './components/ScrollToTop'
 import Navigation from './components/navigation/Navigation'
 import Home from './components/home/Home'
@@ -31,12 +33,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
-            <Route path="/place/:id" element={<PlaceDetails />} />
+            <Route path="/about" element={<About />} />
+            <Route element={<AuthGuard />} >
+              <Route path="/share" element={<ShareLocation />} />
+              <Route path="/place/:id" element={<PlaceDetails />} />
+              <Route path="/logout" element={<Logout />} />
+            </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/share" element={<ShareLocation />} />
           </Routes>
         </main>
       </div>
