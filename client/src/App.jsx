@@ -36,7 +36,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route element={<AuthGuard />} >
               <Route path="/share" element={<ShareLocation />} />
-              <Route path="/place/:id" element={<PlaceDetails />} />
+              <Route path="/place/:placeId" element={<PlaceDetails />} />
               <Route path="/logout" element={<Logout />} />
             </Route>
             <Route path="/login" element={<Login />} />

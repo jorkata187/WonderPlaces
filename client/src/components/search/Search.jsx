@@ -1,9 +1,8 @@
-export default function Search({ 
-    search, 
-    setSearch, 
-    selectedCategory, 
+export default function Search({
+    search,
+    setSearch,
+    selectedCategory,
     setSelectedCategory,
-    places,
 }) {
     const categories = [
         "All",
@@ -13,7 +12,7 @@ export default function Search({
         "City",
         "Historical",
     ];
-    
+
     return (
         <>
             {/* Search Bar */}
@@ -41,17 +40,6 @@ export default function Search({
                         {category}
                     </button>
                 ))}
-            </div>
-
-            {/* Results Heading */}
-            <div className="mb-6 flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-white">
-                    Discover Places
-                </h2>
-
-                <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#7337FF]">
-                    {places.length} Places
-                </span>
             </div>
         </>
     );
