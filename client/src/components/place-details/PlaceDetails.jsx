@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
+
+import { usePlace } from "../../api/placeApi";
 
 import Footer from "../footer/Footer";
 
@@ -7,18 +9,9 @@ export default function PlaceDetails() {
     const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 
-    // Example place data
-    const place = {
-        name: "Santorini",
-        country: "Greece",
-        city: "Oia",
-        category: "Beach",
-        image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200",
-        description:
-            "Santorini is one of the most beautiful islands in Greece, famous for its white houses, blue domes, stunning sunsets and crystal-clear waters. It is a perfect destination for anyone who loves beautiful landscapes, amazing architecture and unforgettable experiences.",
-        author: "John Smith",
-        date: "October 25, 2026",
-    };
+    const { placeId } = useParams();
+
+    const { place } = usePlace(placeId);
 
     // Example comments
     const [comments, setComments] = useState([

@@ -15,4 +15,17 @@ export const usePlaces = () => {
     }
 };
 
+export const usePlace = (placeId) => {
+    const [place, setPlace] = useState({});
+
+    useEffect(() => {
+        request.get(`${baseUrl}/${placeId}`)
+            .then(setPlace)
+    }, [placeId]);
+
+    return {
+        place,
+    }
+};
+
 
