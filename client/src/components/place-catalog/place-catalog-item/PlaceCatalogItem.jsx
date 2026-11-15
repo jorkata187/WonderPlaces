@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
 export default function PlaceCatalogItem({
-    id,
+    _id,
     name,
     country,
     category,
@@ -42,7 +42,7 @@ export default function PlaceCatalogItem({
 
                 {/* View Details */}
                 <Link
-                    to={`/place/${id}`}
+                    to={`/place/${_id}`}
                     className="inline-block rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] px-8 py-2.5 text-white shadow-md shadow-blue-950 hover:opacity-90"
                 >
                     View Details

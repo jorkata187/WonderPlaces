@@ -1349,7 +1349,6 @@
     var seedData = {
         places: [
             {
-                id: 1,
                 name: "Santorini",
                 country: "Greece",
                 city: "Santorini",
@@ -1361,7 +1360,6 @@
                 date: "October 25, 2026",
             },
             {
-                id: 2,
                 name: "Swiss Alps",
                 country: "Switzerland",
                 city: "Swiss Alps",
@@ -1373,7 +1371,6 @@
                 date: "October 25, 2026",
             },
             {
-                id: 3,
                 name: "Paris",
                 country: "France",
                 city: "Paris",
@@ -1385,7 +1382,6 @@
                 date: "October 25, 2026",
             },
             {
-                id: 4,
                 name: "Bali",
                 country: "Indonesia",
                 city: "Bali",
@@ -1397,7 +1393,6 @@
                 date: "October 25, 2026",
             },
             {
-                id: 5,
                 name: "Rome",
                 country: "Italy",
                 city: "Rome",
@@ -1409,7 +1404,6 @@
                 date: "October 25, 2026",
             },
             {
-                id: 6,
                 name: "Maldives",
                 country: "Maldives",
                 city: "Maldives",
