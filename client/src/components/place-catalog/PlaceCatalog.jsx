@@ -19,7 +19,7 @@ export default function PlaceCatalog({
 
             {/* Places Grid */}
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
-                {places.map(place => <PlaceCatalogItem key={place.id} {...place} />)}
+                {places.map(place => <PlaceCatalogItem key={place._id} {...place} />)}
             </div>
 
             {/* Empty Results */}

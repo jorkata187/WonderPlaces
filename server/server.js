@@ -1356,7 +1356,7 @@
                 image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800",
                 description:
                     "Discover the beautiful white houses and stunning blue waters of Santorini.",
-                author: "John Smith",
+                username: "John Smith",
                 date: "October 25, 2026",
             },
             {
@@ -1367,7 +1367,7 @@
                 image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
                 description:
                     "Explore breathtaking mountains and peaceful alpine landscapes.",
-                author: "John Smith",
+                username: "John Smith",
                 date: "October 25, 2026",
             },
             {
@@ -1378,7 +1378,7 @@
                 image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800",
                 description:
                     "Experience the romantic atmosphere and beautiful architecture of Paris.",
-                author: "John Smith",
+                username: "John Smith",
                 date: "October 25, 2026",
             },
             {
@@ -1389,7 +1389,7 @@
                 image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800",
                 description:
                     "Enjoy tropical beaches, green rice terraces and incredible scenery.",
-                author: "John Smith",
+                username: "John Smith",
                 date: "October 25, 2026",
             },
             {
@@ -1400,7 +1400,7 @@
                 image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800",
                 description:
                     "Discover ancient history, famous landmarks and Italian culture.",
-                author: "John Smith",
+                username: "John Smith",
                 date: "October 25, 2026",
             },
             {
@@ -1411,7 +1411,7 @@
                 image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800",
                 description:
                     "Relax in crystal-clear waters and enjoy paradise-like islands.",
-                author: "John Smith",
+                username: "John Smith",
                 date: "October 25, 2026",
             },
         ],

@@ -3,7 +3,10 @@ import { Link, useParams } from "react-router";
 
 import { usePlace } from "../../api/placeApi";
 
+import { fromIsoDate } from "../../utils/dateUtils"; 
+
 import Footer from "../footer/Footer";
+import CommentsCreate from "../comments-create/CommentsCreate";
 
 export default function PlaceDetails() {
     const backgroundImage =
@@ -16,35 +19,21 @@ export default function PlaceDetails() {
     // Example comments
     const [comments, setComments] = useState([
         {
-            id: 1,
-            author: "Emily",
+            _id: 1,
+            username: "Emily",
             text: "Absolutely beautiful place! I would love to visit one day.",
             date: "October 26, 2026",
         },
         {
-            id: 2,
-            author: "Michael",
+            _id: 2,
+            username: "Michael",
             text: "I've been there before. The sunsets are incredible!",
             date: "October 27, 2026",
         },
     ]);
 
-    const [newComment, setNewComment] = useState("");
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (!newComment.trim()) return;
-
-        const comment = {
-            id: Date.now(),
-            author: "You",
-            text: newComment.trim(),
-            date: new Date().toLocaleDateString(),
-        };
-
-        setComments([...comments, comment]);
-        setNewComment("");
+    const addComment = (createdComment) => {
+        setComments(state => [...state, createdComment])
     };
 
     return (
@@ -117,7 +106,7 @@ export default function PlaceDetails() {
                                 <div className="flex items-center justify-between gap-3">
                                     <div>
                                         <p className="font-semibold text-gray-800">
-                                            👤 {place.author}
+                                            👤 {place.username}
                                         </p>
 
                                         <p className="mt-1 text-xs text-gray-500">
@@ -129,41 +118,20 @@ export default function PlaceDetails() {
                                         Explorer
                                     </span>
                                 </div>
-
                             </div>
 
                             {/* Comments Section */}
                             <div>
+                                <CommentsCreate
+                                    addComment={addComment}
+                                    placeId={placeId}
+                                />
 
+                                {/* Comments List */}
                                 <h2 className="mb-5 text-2xl font-bold text-black">
                                     Comments ({comments.length})
                                 </h2>
 
-                                {/* Add Comment */}
-                                <form
-                                    onSubmit={handleSubmit}
-                                    className="mb-8"
-                                >
-                                    <textarea
-                                        value={newComment}
-                                        onChange={(e) =>
-                                            setNewComment(e.target.value)
-                                        }
-                                        placeholder="Share your thoughts about this place..."
-                                        rows="3"
-                                        className="w-full resize-none rounded-md bg-[#E9EFF6] p-4 text-sm outline-none focus:ring-2 focus:ring-[#7336FF]"
-                                    />
-
-                                    <button
-                                        type="submit"
-                                        disabled={!newComment.trim()}
-                                        className="mt-3 w-full rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] py-3 font-semibold text-white shadow-md shadow-blue-950 transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:px-8"
-                                    >
-                                        Post Comment
-                                    </button>
-                                </form>
-
-                                {/* Comments List */}
                                 <div className="space-y-4">
 
                                     {comments.length === 0 ? (
@@ -173,16 +141,16 @@ export default function PlaceDetails() {
                                     ) : (
                                         comments.map((comment) => (
                                             <div
-                                                key={comment.id}
+                                                key={comment._id}
                                                 className="rounded-xl bg-[#E9EFF6] p-5"
                                             >
                                                 <div className="mb-2 flex items-center justify-between gap-3">
                                                     <p className="font-bold text-[#7337FF]">
-                                                        👤 {comment.author}
+                                                        👤 {comment.username}
                                                     </p>
 
                                                     <span className="text-xs text-gray-500">
-                                                        {comment.date}
+                                                        {fromIsoDate(comment._createdOn)}
                                                     </span>
                                                 </div>
 
@@ -192,9 +160,7 @@ export default function PlaceDetails() {
                                             </div>
                                         ))
                                     )}
-
                                 </div>
-
                             </div>
 
                             {/* Back Button */}
@@ -206,7 +172,6 @@ export default function PlaceDetails() {
                                     ← Back to Explore
                                 </Link>
                             </div>
-
                         </div>
                     </div>
 
