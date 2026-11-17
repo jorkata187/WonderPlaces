@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { Link, useParams } from "react-router";
 
 import { usePlace } from "../../api/placeApi";
+import { useComments } from "../../api/commentApi";
 
-import { fromIsoDate } from "../../utils/dateUtils"; 
-
-import Footer from "../footer/Footer";
 import CommentsCreate from "../comments-create/CommentsCreate";
+import CommentsShow from "../comments-show/CommentsShow";
+import Footer from "../footer/Footer";
 
 export default function PlaceDetails() {
     const backgroundImage =
@@ -16,21 +15,7 @@ export default function PlaceDetails() {
 
     const { place } = usePlace(placeId);
 
-    // Example comments
-    const [comments, setComments] = useState([
-        {
-            _id: 1,
-            username: "Emily",
-            text: "Absolutely beautiful place! I would love to visit one day.",
-            date: "October 26, 2026",
-        },
-        {
-            _id: 2,
-            username: "Michael",
-            text: "I've been there before. The sunsets are incredible!",
-            date: "October 27, 2026",
-        },
-    ]);
+    const { comments, setComments } = useComments(placeId);
 
     const addComment = (createdComment) => {
         setComments(state => [...state, createdComment])
@@ -127,40 +112,7 @@ export default function PlaceDetails() {
                                     placeId={placeId}
                                 />
 
-                                {/* Comments List */}
-                                <h2 className="mb-5 text-2xl font-bold text-black">
-                                    Comments ({comments.length})
-                                </h2>
-
-                                <div className="space-y-4">
-
-                                    {comments.length === 0 ? (
-                                        <p className="text-center text-gray-500">
-                                            No comments yet. Be the first to comment!
-                                        </p>
-                                    ) : (
-                                        comments.map((comment) => (
-                                            <div
-                                                key={comment._id}
-                                                className="rounded-xl bg-[#E9EFF6] p-5"
-                                            >
-                                                <div className="mb-2 flex items-center justify-between gap-3">
-                                                    <p className="font-bold text-[#7337FF]">
-                                                        👤 {comment.username}
-                                                    </p>
-
-                                                    <span className="text-xs text-gray-500">
-                                                        {fromIsoDate(comment._createdOn)}
-                                                    </span>
-                                                </div>
-
-                                                <p className="text-sm leading-6 text-gray-700">
-                                                    {comment.text}
-                                                </p>
-                                            </div>
-                                        ))
-                                    )}
-                                </div>
+                                <CommentsShow comments={comments} />
                             </div>
 
                             {/* Back Button */}

@@ -13,16 +13,7 @@ export default function CommentsCreate({
 
     const commentAction = async () => {
 
-        const createdComment = await create(placeId, username, newComment.trim()); // !new Date().toLocaleDateString()
-
-        console.log(createdComment); //!Delete This
-
-        // const comment = {
-        //     id: Date.now(),
-        //     author: "You",
-        //     text: newComment.trim(),
-        //     date: new Date().toLocaleDateString(),
-        // };
+        const createdComment = await create(placeId, username, newComment.trim());
 
         addComment(createdComment);
         setNewComment("");
