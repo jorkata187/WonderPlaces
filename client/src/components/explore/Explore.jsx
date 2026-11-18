@@ -10,7 +10,7 @@ export default function Explore() {
     const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 
-    const { places } = usePlaces();
+    const { sortedPlaces: places } = usePlaces();
 
     const [search, setSearch] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");

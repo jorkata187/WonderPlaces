@@ -24,8 +24,10 @@ export const usePlaces = () => {
             .then(setPlaces)
     }, []);
 
+    const sortedPlaces = places.sort((a, b) => b._createdOn - a._createdOn);
+
     return {
-        places,
+        sortedPlaces,
     }
 };
 
