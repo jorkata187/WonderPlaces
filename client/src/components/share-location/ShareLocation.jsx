@@ -1,8 +1,33 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useActionState } from "react";
+import { toast } from "react-toastify";
+
+import { useUserContext } from "../../contexts/UserContext";
+import { useCreatePlace } from "../../api/placeApi";
 
 import Footer from "../footer/Footer";
 
 export default function ShareLocation() {
+    const navigate = useNavigate();
+    const { create: createPlace } = useCreatePlace();
+    const { username } = useUserContext();
+
+    const action = async (_, formData) => {
+        const placeData = Object.fromEntries(formData);
+
+        try {
+            await createPlace({ ...placeData, createdBy: username });
+            toast.success('Created succesfuly');
+            navigate('/explore');
+        } catch (error) {
+            toast.error(error.message);
+        }
+
+    };
+    const initialFormState = { name: '', country: '', city: '', category: '', image: '', description: '', };
+
+    const [state, formAction, isPending] = useActionState(action, initialFormState);
+
     const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 
@@ -36,13 +61,13 @@ export default function ShareLocation() {
                             Discover something amazing? Share it with the world!
                         </p>
 
-                        <form>
-
+                        <form action={formAction}>
                             <div className="space-y-4">
 
                                 {/* Place Name */}
                                 <input
                                     type="text"
+                                    name="name"
                                     placeholder="Place Name"
                                     required
                                     className="w-full rounded-md bg-[#E9EFF6] p-3 placeholder:text-[#000000]"
@@ -55,6 +80,7 @@ export default function ShareLocation() {
                                 <div className="flex flex-col gap-4 sm:flex-row">
                                     <input
                                         type="text"
+                                        name="country"
                                         placeholder="Country"
                                         required
                                         className="w-full rounded-md bg-[#E9EFF6] p-3 placeholder:text-[#000000]"
@@ -65,6 +91,7 @@ export default function ShareLocation() {
 
                                     <input
                                         type="text"
+                                        name="city"
                                         placeholder="City"
                                         required
                                         className="w-full rounded-md bg-[#E9EFF6] p-3 placeholder:text-[#000000]"
@@ -78,6 +105,7 @@ export default function ShareLocation() {
                                 <select
                                     required
                                     defaultValue=""
+                                    name="category"
                                     className="w-full rounded-md bg-[#E9EFF6] p-3 text-gray-700"
                                     style={{
                                         boxShadow: "rgb(0 0 0 / 21%) 0px 7px 5px 0px",
@@ -97,6 +125,7 @@ export default function ShareLocation() {
                                 {/* Image URL */}
                                 <input
                                     type="url"
+                                    name="image"
                                     placeholder="Image URL (https://...)"
                                     className="w-full rounded-md bg-[#E9EFF6] p-3 placeholder:text-[#000000]"
                                     style={{
@@ -108,6 +137,7 @@ export default function ShareLocation() {
                                 <textarea
                                     placeholder="Tell us about this amazing place..."
                                     rows="4"
+                                    name="description"
                                     required
                                     className="w-full resize-none rounded-md bg-[#E9EFF6] p-3 placeholder:text-[#000000]"
                                     style={{
@@ -120,13 +150,16 @@ export default function ShareLocation() {
                             {/* Share Button */}
                             <div className="mt-6 flex justify-center">
                                 <button
+                                    disabled={isPending}
                                     type="submit"
-                                    className="h-11 w-full cursor-pointer rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] font-semibold text-white shadow-md shadow-blue-950 hover:opacity-90"
+                                    className={isPending
+                                        ? "h-10 w-full rounded-md bg-gradient-to-br from-[#9b9a9c] to-[#c0bfc1] text-white shadow-md shadow-blue-950"
+                                        : "h-11 w-full cursor-pointer rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] font-semibold text-white shadow-md shadow-blue-950 hover:opacity-90"
+                                    }
                                 >
                                     Share Location
                                 </button>
                             </div>
-
                         </form>
 
                         <div className="mt-5 text-center">
@@ -139,7 +172,7 @@ export default function ShareLocation() {
                         </div>
 
                     </div>
-                    
+
                     <Footer />
                 </div>
             </div>

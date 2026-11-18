@@ -1352,67 +1352,79 @@
                 name: "Santorini",
                 country: "Greece",
                 city: "Santorini",
-                category: "Beach",
+                category: "beach",
                 image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800",
                 description:
                     "Discover the beautiful white houses and stunning blue waters of Santorini.",
-                username: "John Smith",
-                date: "October 25, 2026",
+                createdBy: "John Smith",
+                _createdOn: 1794961264837,
+                _id: "8299gb7-53da-4c56-8bc6-3b38ef2584f9",
+                _ownerId: "abbeca63-3e87-4041-85d0-befe850db66d"
             },
             {
                 name: "Swiss Alps",
                 country: "Switzerland",
                 city: "Swiss Alps",
-                category: "Mountain",
+                category: "mountain",
                 image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
                 description:
                     "Explore breathtaking mountains and peaceful alpine landscapes.",
-                username: "John Smith",
-                date: "October 25, 2026",
+                createdBy: "John Smith",
+                _createdOn: 1794961264837,
+                _id: "82992db7-98da-4c56-8bc6-3b38ef2584f9",
+                _ownerId: "abbeca63-3e87-4041-85d0-befe850db66d"
             },
             {
                 name: "Paris",
                 country: "France",
                 city: "Paris",
-                category: "City",
+                category: "city",
                 image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800",
                 description:
                     "Experience the romantic atmosphere and beautiful architecture of Paris.",
-                username: "John Smith",
-                date: "October 25, 2026",
+                createdBy: "John Smith",
+                _createdOn: 1794961264837,
+                _id: "82992db7-53da-4c50-8bc6-3b38ef2584f9",
+                _ownerId: "abbeca63-3e87-4041-85d0-befe850db66d"
             },
             {
                 name: "Bali",
                 country: "Indonesia",
                 city: "Bali",
-                category: "Nature",
+                category: "nature",
                 image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800",
                 description:
                     "Enjoy tropical beaches, green rice terraces and incredible scenery.",
-                username: "John Smith",
-                date: "October 25, 2026",
+                createdBy: "John Smith",
+                _createdOn: 1794961264837,
+                _id: "82992db7-5yiia-4c56-8bc6-3b38ef2584f9",
+                _ownerId: "abbeca63-3e87-4041-85d0-befe850db66d"
             },
             {
                 name: "Rome",
                 country: "Italy",
                 city: "Rome",
-                category: "Historical",
+                category: "historical",
                 image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800",
                 description:
                     "Discover ancient history, famous landmarks and Italian culture.",
-                username: "John Smith",
-                date: "October 25, 2026",
+                createdBy: "John Smith",
+                _createdOn: 1794961264837,
+                _id: "8299hgfb7-53da-4c56-8bc6-3b38ef2584f9",
+                _ownerId: "abbeca63-3e87-4041-85d0-befe850db66d"
             },
             {
                 name: "Maldives",
                 country: "Maldives",
                 city: "Maldives",
-                category: "Beach",
+                category: "beach",
                 image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800",
                 description:
                     "Relax in crystal-clear waters and enjoy paradise-like islands.",
-                username: "John Smith",
-                date: "October 25, 2026",
+                createdBy: "John Smith",
+                _createdOn: 1794961264837,
+                _id: "82072db7-53da-4c56-8bc6-3b38ef2584f9",
+                _ownerId: "abbeca63-3e87-4041-85d0-befe850db66d"
             },
         ],
         recipes: {

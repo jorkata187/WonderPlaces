@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router";
 
 import { usePlace } from "../../api/placeApi";
 import { useComments } from "../../api/commentApi";
+import { fromIsoDate } from "../../utils/dateUtils";
 
 import CommentsCreate from "../comments-create/CommentsCreate";
 import CommentsShow from "../comments-show/CommentsShow";
@@ -91,11 +92,11 @@ export default function PlaceDetails() {
                                 <div className="flex items-center justify-between gap-3">
                                     <div>
                                         <p className="font-semibold text-gray-800">
-                                            👤 {place.username}
+                                            👤 {place.createdBy}
                                         </p>
 
                                         <p className="mt-1 text-xs text-gray-500">
-                                            Shared on {place.date}
+                                            Shared on {fromIsoDate(place._createdOn)}
                                         </p>
                                     </div>
 

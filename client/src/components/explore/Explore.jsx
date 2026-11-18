@@ -22,7 +22,7 @@ export default function Explore() {
 
         const matchesCategory =
             selectedCategory === "All" ||
-            place.category === selectedCategory;
+            place.category === selectedCategory.toLowerCase();
 
         return matchesSearch && matchesCategory;
     });
