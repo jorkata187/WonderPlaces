@@ -52,7 +52,10 @@ export const useLogout = () => {
             .then(() => {
                 userLogoutHandler()
             })
-            .catch(err => toast.error(err.message));
+            .catch(err => {
+                toast.error(err.message);
+                userLogoutHandler();
+            });
     }, [accessToken, userLogoutHandler]);
 
     return {
