@@ -17,6 +17,7 @@ import Logout from './components/logout/Logout'
 import Explore from './components/explore/Explore'
 import PlaceDetails from './components/place-details/PlaceDetails'
 import ShareLocation from './components/share-location/ShareLocation'
+import ExploreByCategory from './components/explore-by-category/ExploreByCategory'
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
+            <Route path="/explore/:categoryName" element={<ExploreByCategory />} />
             <Route path="/about" element={<About />} />
             <Route element={<AuthGuard />} >
               <Route path="/share" element={<ShareLocation />} />

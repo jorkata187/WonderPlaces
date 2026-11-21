@@ -11,7 +11,7 @@ export const useCreatePlace = () => {
     const create = (placeData) => {
         return request.post(baseUrl, placeData);
     }
-    
+
     return {
         create,
     }
@@ -28,6 +28,20 @@ export const usePlaces = () => {
 
     return {
         sortedPlaces,
+    }
+};
+
+export const useCategoryPlaces = (categoryName) => {
+    const [places, setPlaces] = useState([]);
+    useEffect(() => {
+        request.get(baseUrl)
+            .then(setPlaces)
+    }, []);
+
+    const filteredPlaces = places.filter(place => place.category === categoryName)
+
+    return {
+        filteredPlaces,
     }
 };
 

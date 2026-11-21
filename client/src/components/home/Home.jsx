@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router";
 
 const destinations = [
@@ -38,14 +37,6 @@ const categories = [
 export default function Home() {
     const backgroundImage =
         "https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
-
-    const [search, setSearch] = useState("");
-
-    const filteredDestinations = destinations.filter((place) =>
-        `${place.name} ${place.country}`
-            .toLowerCase()
-            .includes(search.toLowerCase())
-    );
 
     return (
         <div className="min-h-screen bg-cover bg-center bg-fixed">
@@ -90,7 +81,7 @@ export default function Home() {
                 </div>
 
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {filteredDestinations.map((place) => (
+                    {destinations.map((place) => (
                         <div
                             key={place.id}
                             className="group overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl"
@@ -131,7 +122,7 @@ export default function Home() {
                     ))}
                 </div>
 
-                {filteredDestinations.length === 0 && (
+                {destinations.length === 0 && (
                     <p className="mt-8 text-center text-gray-500">
                         No destinations found. Try another search.
                     </p>
@@ -155,7 +146,7 @@ export default function Home() {
                         {categories.map((category) => (
                             <Link
                                 key={category.name}
-                                to="/explore"
+                                to={`/explore/${category.name}`}
                                 className="rounded-2xl border border-gray-100 bg-gray-50 p-8 text-center transition hover:-translate-y-2 hover:border-purple-200 hover:bg-purple-50 hover:shadow-lg"
                             >
                                 <span className="mb-4 block text-5xl">
@@ -243,43 +234,3 @@ export default function Home() {
         </div>
     );
 }
-
-// export default function Home() {
-//    return (
-//         <section className="w-full">
-//             <div
-//                 className="w-full h-[775px] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center bg-fixed"
-//                 style={{
-//                     backgroundImage:
-//                         "url('https://plus.unsplash.com/premium_photo-1661883991651-b5487771e9aa?q=80&w=1516&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D')",
-//                 }}
-//             >
-//                 {/* Photo by '@insolitus' on Unsplash */}
-//                 <div>
-//                     <h1 className="text-white text-center xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl font-semibold p-2 bg-opacity-40 rounded-sm">
-//                         Discover New Places
-//                     </h1>
-//                 </div>
-
-//                 <div className="w-full mx-auto">
-//                     <form>
-//                         <div className="xl:w-1/2 lg:w-[60%] sm:w-[70%] w-[90%] mx-auto flex gap-2 md:mt-6 mt-4">
-//                             <input
-//                                 type="text"
-//                                 className="border border-gray-400 w-full p-2 rounded-md text-xl pl-2"
-//                                 placeholder="Search for a place by country..."
-//                             />
-
-//                             <button
-//                                 type="submit"
-//                                 className="px-[10px] bg-blue-500 text-lg text-white rounded-md font-semibold"
-//                             >
-//                                 Search
-//                             </button>
-//                         </div>
-//                     </form>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// }
